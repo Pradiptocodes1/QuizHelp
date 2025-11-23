@@ -432,6 +432,7 @@ body {
     font-size: 1.2em;
     color: #654321;
     font-weight: bold;
+    position: relative;
 }
 
 .option:hover {
@@ -443,6 +444,22 @@ body {
     background: linear-gradient(180deg, #87CEEB 0%, #4682B4 100%);
     color: white;
     border-color: #1E3A5F;
+    animation: subtleGlow 0.5s ease-out;
+}
+
+@keyframes subtleGlow {
+    0% {
+        box-shadow: 0 0 0 rgba(70, 130, 180, 0);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(70, 130, 180, 0.6);
+        transform: scale(1.02);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(70, 130, 180, 0.3);
+        transform: scale(1);
+    }
 }
 
 /* Fireworks for 90+ score */

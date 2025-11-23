@@ -143,52 +143,16 @@ function selectOption(optionIndex) {
     // Update UI
     const options = document.querySelectorAll('.option');
     options.forEach((opt, idx) => {
+        opt.classList.remove('selected');
         if (idx === optionIndex) {
-            opt.classList.add('selected');
-            opt.classList.add('clicked');
-            
-            // Create star burst effect
-            createStarBurst(opt);
-            
-            // Remove clicked animation after it completes
+            // Small delay to retrigger animation if same option clicked again
             setTimeout(() => {
-                opt.classList.remove('clicked');
-            }, 400);
-        } else {
-            opt.classList.remove('selected');
+                opt.classList.add('selected');
+            }, 10);
         }
     });
     
     updateQuestionNav();
-}
-
-// Create Star Burst Effect
-function createStarBurst(element) {
-    const stars = ['⭐', '✨', '💫', '🌟'];
-    const rect = element.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    
-    for (let i = 0; i < 8; i++) {
-        const star = document.createElement('div');
-        star.className = 'star-particle';
-        star.textContent = stars[Math.floor(Math.random() * stars.length)];
-        
-        // Random direction
-        const angle = (Math.PI * 2 * i) / 8;
-        const distance = 50 + Math.random() * 50;
-        const tx = Math.cos(angle) * distance;
-        const ty = Math.sin(angle) * distance;
-        
-        star.style.left = centerX + 'px';
-        star.style.top = centerY + 'px';
-        star.style.setProperty('--tx', tx + 'px');
-        star.style.setProperty('--ty', ty + 'px');
-        
-        document.body.appendChild(star);
-        
-        setTimeout(() => star.remove(), 800);
-    }
 }
 
 // Navigation Functions
