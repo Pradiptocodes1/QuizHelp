@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP CPI Quiz - Select Section</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Section Selection Screen -->
+        <div id="sectionScreen" class="section-select">
+            <h2>Choose Your Section</h2>
+            <div class="section-grid">
+                <div class="section-card">
+                    <h3>Section 1: Integration Basics</h3>
+                    <button class="subsection-btn" data-section="1" data-count="30">30 Questions</button>
+                    <button class="subsection-btn" data-section="1" data-count="60">60 Questions</button>
+                </div>
+                <div class="section-card">
+                    <h3>Section 2: Message Processing</h3>
+                    <button class="subsection-btn" data-section="2" data-count="30">30 Questions</button>
+                    <button class="subsection-btn" data-section="2" data-count="60">60 Questions</button>
+                </div>
+                <div class="section-card">
+                    <h3>Section 3: Security & Adapters</h3>
+                    <button class="subsection-btn" data-section="3" data-count="30">30 Questions</button>
+                    <button class="subsection-btn" data-section="3" data-count="60">60 Questions</button>
+                </div>
+                <div class="section-card">
+                    <h3>Section 4: Monitoring & Error Handling</h3>
+                    <button class="subsection-btn" data-section="4" data-count="30">30 Questions</button>
+                    <button class="subsection-btn" data-section="4" data-count="60">60 Questions</button>
+                </div>
+                <div class="section-card">
+                    <h3>Section 5: Advanced Integration</h3>
+                    <button class="subsection-btn" data-section="5" data-count="30">30 Questions</button>
+                    <button class="subsection-btn" data-section="5" data-count="60">60 Questions</button>
+                </div>
+                <div class="section-card">
+                    <h3>Section 6: Best Practices & Optimization</h3>
+                    <button class="subsection-btn" data-section="6" data-count="30">30 Questions</button>
+                    <button class="subsection-btn" data-section="6" data-count="60">60 Questions</button>
+                </div>
+            </div>
+            <button class="nav-btn" onclick="window.location.href='index.html'" style="margin-top: 30px;">← Back to Home</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quizScreen" class="quiz-screen hidden">
+            <div class="quiz-header">
+                <div class="quiz-info" id="sectionInfo">Section 1</div>
+                <div class="quiz-info" id="questionCounter">Question 1/30</div>
+                <div class="quiz-info" id="timer">Time: 00:00</div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-text" id="questionText"></div>
+                <div class="options" id="optionsContainer"></div>
+            </div>
+
+            <div class="navigation">
+                <button class="nav-btn" id="prevBtn">← Previous</button>
+                <button class="nav-btn" id="nextBtn">Next →</button>
+                <button class="nav-btn" id="submitBtn" style="display:none;">Submit Quiz</button>
+            </div>
+
+            <div class="question-nav" id="questionNav"></div>
+        </div>
+
+        <!-- Score Screen -->
+        <div id="scoreScreen" class="score-screen hidden">
+            <h2 id="scoreTitle">Quiz Complete!</h2>
+            <div id="celebrationAnimation"></div>
+            
+            <div class="score-details">
+                <div class="score-item">📊 Score: <span id="finalScore"></span></div>
+                <div class="score-item">📈 Percentage: <span id="percentage"></span></div>
+                <div class="score-item">⏱️ Time Taken: <span id="timeTaken"></span></div>
+                <div class="score-item">✅ Correct: <span id="correctCount"></span></div>
+                <div class="score-item">❌ Wrong: <span id="wrongCount"></span></div>
+            </div>
+
+            <h3 style="margin-top: 30px; color: #8B4513;">Review Your Answers</h3>
+            <div id="reviewContainer"></div>
+
+            <div style="margin-top: 30px;">
+                <button class="download-btn" id="downloadBtn">📥 Download Report</button>
+                <button class="nav-btn" onclick="location.reload()">🔄 Take Another Quiz</button>
+                <button class="nav-btn" onclick="window.location.href='index.html'">🏠 Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>
